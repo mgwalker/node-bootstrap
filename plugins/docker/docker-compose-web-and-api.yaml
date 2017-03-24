@@ -1,0 +1,25 @@
+version: "3"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile-api
+    volumes:
+      - ./api:/app/api
+      - /app/node_modules
+    environment:
+      PORT: 8000
+    expose:
+      - 8000
+    ports:
+      - '8081:8000'
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-web
+    volumes:
+      - ./web:/app/web
+      - /app/node_modules
+    ports:
+      - 8080:8000

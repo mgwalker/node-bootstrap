@@ -1,0 +1,11 @@
+FROM node:6.9
+
+RUN mkdir /app
+WORKDIR /app
+
+ADD ./package.json .
+RUN npm install
+
+ADD ./webpack.config.js .
+
+CMD npm run start-web-dev

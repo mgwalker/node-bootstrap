@@ -1,0 +1,11 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-web
+    volumes:
+      - ./web:/app/web
+      - /app/node_modules
+    ports:
+      - 8080:8000

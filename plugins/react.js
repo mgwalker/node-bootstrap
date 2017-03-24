@@ -21,13 +21,11 @@ module.exports = {
       'node-sass',
       'resolve-url-loader',
       'sass-loader',
-      'webpack',
-      'webpack-dev-server'
+      'webpack'
     ]
   },
   scripts: {
-    'build-js': 'webpack -p',
-    'start-web': 'webpack-dev-server --host 0.0.0.0 --port 8000 web/src/'
+    'build-js': 'webpack -p'
   },
   eslintPaths: ['web/src/**/*.js', 'web/src/**/*.jsx'],
   buildComponents: ['build-js'],
