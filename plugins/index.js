@@ -12,7 +12,8 @@ module.exports = {
   redux,
 
   getPlugins(pieces) {
-    const out = [];
+    const plugins = new Set();
+
     for (const piece of pieces) {
       const pieceName = piece.split('=')[0];
       const pieceArg = piece.split('=')[1];
@@ -21,9 +22,7 @@ module.exports = {
           for (const requirement of module.exports[pieceName].requires) {
             if (module.exports[requirement]) {
               const req = module.exports[requirement];
-              if (!out.includes[req]) {
-                out.push(req);
-              }
+              plugins.add(req);
             }
           }
         }
@@ -33,9 +32,9 @@ module.exports = {
           pieceToAdd = pieceToAdd(pieceArg);
         }
 
-        out.push(pieceToAdd);
+        plugins.add(pieceToAdd);
       }
     }
-    return out;
+    return [...plugins];
   }
 };
