@@ -1,0 +1,39 @@
+{
+  "name": "@mgwalker/npm-bootstrap",
+  "version": "1.0.0",
+  "description": "Bootstraps a node project by making a package.json, initializing a git repo, and optionally setting up Docker, React, redux, and creating a repo on GitHub.",
+  "main": "bin/index.js",
+  "keywords": [
+    "bootstrap",
+    "init",
+    "npm",
+    "package.json"
+  ],
+  "bugs": {
+    "url": "https://github.com/mgwalker/node-bootstrap/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "mgwalker/node-bootstrap"
+  },
+  "scripts": {
+    "lint": "eslint --fix *.js 'npm/**/*.js' 'git/**/*.js' plugins/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "node-bootstrap": "index.js"
+  },
+  "prefersGlobal": true,
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "fs-extra": "^2.0.0",
+    "log": "^1.4.0"
+  }
+}
