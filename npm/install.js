@@ -3,10 +3,11 @@ const log = require('../log');
 const promisedExec = require('../promisedExec');
 
 function getNPMDepList(pieces, which) {
-  return pieces.reduce((list, piece) => {
-    list.push(...piece.npm[which]);
-    return list;
-  }, []);
+  const dependencies = pieces.reduce((set, piece) => {
+    piece.npm[which].forEach(mod => set.add(mod));
+    return set;
+  }, new Set());
+  return [...dependencies];
 }
 
 function npmInstall(modules, saveExt = false) {
