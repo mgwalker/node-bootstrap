@@ -22,11 +22,21 @@ function copyFiles(pieces) {
   return pieces;
 }
 
+function preparePlugins(pieces) {
+  const preps = [];
+  const prepPieces = pieces.filter(piece => piece.prepare);
+  for (const piece of prepPieces) {
+    preps.push(piece.prepare(pieces));
+  }
+  return Promise.all(preps).then(() => pieces);
+}
+
 function runCLI(pieces) {
   const localPlugins = plugins.getPlugins(pieces);
 
-  npm.init(localPlugins)
+  preparePlugins(localPlugins)
     .then(copyFiles)
+    .then(npm.init)
     .then(npm.install)
     .then(npm.installDev)
     .then(npm.addScripts)
