@@ -8,18 +8,26 @@ module.exports = {
   npm: {
     deps: ['react', 'react-dom'],
     devDeps: [
+      'babel-core',
+      'babel-loader',
       'babel-preset-es2015',
       'babel-preset-react',
-      'babelify',
-      'browserify',
+      'css-loader',
       'eslint-config-airbnb',
       'eslint-plugin-import',
       'eslint-plugin-jsx-a11y',
-      'eslint-plugin-react'
+      'eslint-plugin-react',
+      'file-loader',
+      'node-sass',
+      'resolve-url-loader',
+      'sass-loader',
+      'webpack',
+      'webpack-dev-server'
     ]
   },
   scripts: {
-    'build-js': 'browserify -d -t [ babelify --presets [ react es2015 ] ] web/src/app.jsx -o web/dist/app.js'
+    'build-js': 'webpack -p',
+    'start-web': 'webpack-dev-server --host 0.0.0.0 --port 8000 web/src/'
   },
   eslintPaths: ['web/src/**/*.js', 'web/src/**/*.jsx'],
   buildComponents: ['build-js'],
@@ -28,8 +36,9 @@ module.exports = {
   },
   files: {
     'web/.gitignore': localPath('gitignore'),
-    'web/dist/index.html': localPath('index.html'),
+    'web/src/index.html': localPath('index.html'),
     'web/src/app.jsx': localPath('entry-point.jsx'),
-    'web/.eslintrc.json': localPath('eslintrc.json')
+    'web/.eslintrc.json': localPath('eslintrc.json'),
+    'webpack.config.js': localPath('webpack.config.js')
   }
 };
