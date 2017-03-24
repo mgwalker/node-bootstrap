@@ -1,4 +1,4 @@
-const Action = {
+export const Action = {
   actions: {
     ACTION_1: 'action string'
   },
