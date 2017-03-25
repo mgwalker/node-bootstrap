@@ -1,5 +1,5 @@
 {
-  "name": "@mgwalker/npm-bootstrap",
+  "name": "@mgwalker/node-bootstrap",
   "version": "1.0.0",
   "description": "Bootstraps a node project by making a package.json, initializing a git repo, and optionally setting up Docker, React, redux, and creating a repo on GitHub.",
   "main": "bin/index.js",
